@@ -45,10 +45,10 @@
     <title>UDAsoccer</title> <!--Nombre para la pestaña-->
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/estilos.css" rel="stylesheet">
+    <link href="../css/estilos.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -77,10 +77,6 @@
                      </li>
 
                      <li class="page-scroll">
-                        <a href="#nosotros">Nosotros</a>
-                     </li>
-
-                     <li class="page-scroll">
                         <a href="#nosotros">Registrar Jugador</a>
                      </li>                     
 
@@ -92,9 +88,6 @@
                         <a href="#nosotros">Registrar Administradores</a>
                      </li>
                    
-                    <li class="page-scroll">
-            			<a href="#contact">Contacto</a>
-        			</li>
         			<li class="page-scroll">
             			<a href="#contact">
             				<?php echo $nombre_completo_usuario; ?>
