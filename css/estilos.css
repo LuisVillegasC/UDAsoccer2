@@ -398,3 +398,13 @@ body {
     p{
         color: #fff;
     }
+
+
+    /*LOGIN*/
+    .input-formulario{
+        color: black;
+    }
+
+    .boton-formulario{
+        color: black;
+    }
