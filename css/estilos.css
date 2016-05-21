@@ -1,0 +1,400 @@
+body {
+        overflow-x: hidden;
+    }
+
+    p { /*LETRAS*/
+        font-size: 16px; /*tamaño de letras de todas las secciones*/    }
+    p.small {
+        font-size: 16px;}
+
+    a,
+    a:hover,
+    a:focus,
+    a:active,
+    a.active {
+        outline: 0;
+        color: #990000; /*color de letra de los equipos = color guido fuerte*/}
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 { /*respecto la seccion de INICIO*/
+        text-transform: uppercase;
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 20px; /*tamaño de letras*/
+        font-weight: 550; /*grosor de letra*/
+        color: #ffff00; /*color de letra = color amarrillo*/}
+
+/*TODO RESPECTO A LA ESTRELLA*/
+    hr.star-light,
+    hr.star-primary {
+        margin: 25px auto 30px;
+        padding: 0;
+        max-width: 250px;
+        border: 0;
+        border-top: solid 5px;
+        text-align: center;
+    }
+
+    hr.star-light:after,
+    hr.star-primary:after {
+        content: "\f005";
+        display: inline-block;
+        position: relative;
+        top: -.8em;
+        padding: 0 .25em;
+        font-family: FontAwesome;
+        font-size: 2em;
+    }
+/*estrella de la seccion de INICIO y ABOUT*/
+    hr.star-light { 
+        border-color: #ffff00; /*Color amarrillo*/}
+    hr.star-light:after { 
+        color: #ffff00;/*color amarrillo*/
+        background-color: #006666;/*Color de fondo de la estrella = verde agua oscuro*/}
+
+/*estrella de la seccion de Nosotros y contactos*/
+    hr.star-primary {
+        border-color: #ffff00;/*color de linea de estrella = amarrillo*/}
+    hr.star-primary:after { 
+        color: #ffff00;/*color amarrillo*/
+        background-color: #506090;/*color de fondo de la estrella = violeta suave*/}
+
+    .img-centered {
+        margin: 0 auto;}
+
+/*SECCION PRINCIPAL DE LA PAGINA*/
+    header { /*seccion Principal*/
+        text-align: center; /*Alineado de texto = centro*/
+        color: #fff;/* color de letra: UDASOCCER = blanco*/
+        font-size: 10px; /*Tamaño de letra*/
+        background: #006666; /*color de fondo de la pagina = verde agua oscuro*/}
+
+    header .container { /* PARTE CENTREADA DE LA PAGINA PRINCIPAL*/
+        padding-top: 100px;
+        padding-bottom: 50px;}
+
+    header img { /*TODO RESPECTO A LA IMAGEN*/
+        display: block;
+        margin: 0 auto 10px;/*ubicacion de la imagen*/}
+
+    header .intro-text .name { /*RESPECTO A LETRAS DE LA PAGINA PRINCIPAL*/
+        display: block;
+        text-transform: uppercase;
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;/*tipo de letra*/
+        font-size: 2em;/* grosor de negrita de letra*/
+        font-weight: 600;/*grosor de letra*/}
+    header .intro-text .skills {
+        font-size: 1.25em;
+        font-weight: 300;}
+
+/*PARTE SUPERIOR DE LA PAGINA*/
+    @media(min-width:768px) 
+    {    
+        header .container {
+            padding-top: 180x; /*espacio de arriba con la imagen*/
+            padding-bottom: 100px;}
+        header .intro-text .name {
+            font-size: 4.75em;}
+        header .intro-text .skills {
+            font-size: 3.00em;/*Tamaño de letra*/}
+    }
+    @media(min-width:768px) 
+    {
+        .navbar-fixed-top { /*PARTE DE ARRIBA DE LA PAGINA*/
+            padding: 20px 0; /*altura o grosor*/
+            -webkit-transition: padding .3s;
+            -moz-transition: padding .3s;
+            transition: padding .3s;
+            background-color:#001100; /*color negro verdoso*/}
+
+        .navbar-fixed-top .navbar-brand { /*NOMBRE DEl LOGO*/
+            font-size: 2em; /*tamaño deL LOGO*/
+            -webkit-transition: all .3s;
+            -moz-transition: all .3s;
+            transition: all .3s;
+            color: #ffff00; } /*color de titulos de las secciones*/
+        .navbar-fixed-top .navbar-brand { /**/
+            color: #FF6600;/*color Naranja*/}
+
+        .navbar-fixed-top.navbar-shrink {
+            padding: 10px 0;}/*tamaño alto cuando se abre otra seccion*/
+
+        .navbar-fixed-top.navbar-shrink .navbar-brand {
+            font-size: 1.5em;/*tamaño de letra cuando se abre otra seccion*/}
+    }
+    .navbar {
+        text-transform: uppercase;
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;/*Tipo de letra*/
+        font-weight: 710;} /*grosor de letra*/
+
+    .navbar a:focus {
+        outline: 0;/*focus, tamaño de fondo de letra*/}
+    .navbar .navbar-nav {
+        letter-spacing: 1px;/*espacio de separacion de letra*/}
+    .navbar .navbar-nav li a:focus {
+        outline: 0;
+        color: #ffff00;/*color amarrillo*/}
+
+    .navbar-default,
+    .navbar-inverse {
+        border: 0;}
+
+/*SECCION NOSOTROS EQUIPOS Y CONTACTOS*/
+    section {
+        padding: 150px 0;/*tamaño de espacio de pantalla*/
+        background-color:#506090;/*color de fondo de la seccion NOSOTROS, EQUIPOS Y CONTACTOS color = violeta suave*/}
+    section h2 {
+        margin: 0;
+        font-size: 2em; /*tamaño de letra superior de ABOUT*/ }
+    
+    section.success { /*SECCION DE INICIO y ABOUT*/
+        color: #ffffff; /*color de letra = blanco*/
+        background: #006666; /*color de fondo de la seccion de INICIO y ABOUT = verde agua oscuro*/}
+
+    section.success a,
+    section.success a:hover,
+    section.success a:focus,
+    section.success a:active,
+    section.success a.active {
+        outline: 0;
+        color: #ff0000;  /*color de letra del boton = rojo*/}
+    @media(max-width:767px) 
+    {
+        section {
+            padding: 75px 0;}
+        section.first {
+            padding-top: 75px;}
+    }
+
+/*SECCION EQUIPOS*/
+    #portfolio .portfolio-item {
+        right: 0;
+        margin: 0 0 15px;
+    }
+    /* CLASE PROTAFOLIO = ESCUDOS DE EQUIPOS*/
+    #portfolio .portfolio-item .portfolio-link { /*NOMBRE DE LOS CLUBES*/
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        max-width: 400px;
+         background: #D3D3D3;/*color de fondo de nombre de equipos = plomo suabe*/}
+    #portfolio .portfolio-item .portfolio-link .caption { /*AL HACERCAR CON EL MAUSE*/
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background: rgba(250,128,114,.6); /*color de imagen al hacercar mouse = color salmon (codigo decimal) (el ultimo numero .6 =transparecia)*/
+        -webkit-transition: all ease .5s;
+        -moz-transition: all ease .5s;
+        transition: all ease .5s;}
+    #portfolio .portfolio-item .portfolio-link .caption:hover {
+        opacity: 1;}
+    #portfolio .portfolio-item .portfolio-link .caption .caption-content {/*IMAGEN DE BUSQUEDA */
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        height: 20px;
+        margin-top: -12px;
+        text-align: center;
+        font-size: 20px;
+        color: #fff; /*IMAGEN DE BUSQUEDA = COLOR BLANCO*/}
+
+    #portfolio .portfolio-item .portfolio-link .caption .caption-content i {
+        margin-top: -12px;}
+    #portfolio .portfolio-item .portfolio-link .caption .caption-content h3,
+    #portfolio .portfolio-item .portfolio-link .caption .caption-content h4 {
+        margin: 0;}
+    #portfolio * { /*CUADRO DE EQUIPOS*/
+        z-index: 2; }
+    @media(min-width:767px) 
+    {
+        #portfolio .portfolio-item {
+            margin: 0 0 30px;/*separacion de las imagenes parte arriba con abajo*/}
+    }
+
+/*BOTONES DE DESCARGA*/
+    .btn-outline {
+        margin-top: 5px;
+        border: solid 2px #fff; /*color del borde del Boton de descargar = blanco*/
+        font-size: 15px; /*tamaño de largo*/
+        color: #fff;
+        background: #ff8c00; /*color de fondo*/
+        transition: all .3s ease-in-out;}
+
+    .btn-outline:hover,
+    .btn-outline:focus,
+    .btn-outline:active,
+    .btn-outline.active {
+        border: solid 2px #fff;/*color de borde al hacercar el mouse*/
+        color: #18bc9c;
+        background: #fff; /*color de fondo al acercar el mouse = color blanco*/}
+
+    /*boton de CONTACTOS*/
+
+
+    .btn-lg{
+     background: #ff8c00; /*color de fondo*/  
+     border: solid 2px #fff;/*color de borde al hacercar el mouse*/ 
+    }
+    .btn-lg:hover,
+    .btn-lg:focus,
+    .btn-lg:active,
+    .btn-lg.active {
+        border: solid 2px #fff;/*color de borde al hacercar el mouse*/
+        color: #18bc9c;
+        background: #fff; /*color de fondo al acercar el mouse = color blanco*/}
+    
+/*RESPECTO A LA SECCION DE CONTACTO*/
+    .floating-label-form-group {
+        position: relative;
+        margin-bottom: 0;
+        padding-bottom: 0em; /*Espacion entre letra y linea*/
+        border-bottom: 2px solid #fff; /*Grosor y color de lines de sepacion = blanco*/}
+    .floating-label-form-group input,
+    .floating-label-form-group textarea {
+        z-index: 1;
+        position: relative;
+        padding-right: 0;
+        padding-left: 0;
+        border: 0;
+        border-radius: 0;
+        font-size: 1.5em;
+        background: 0 0; /*color de fondo de letras*/
+        color: #fff; /*color = blanco*/
+        box-shadow: none!important;
+        resize: none;}
+    .floating-label-form-group label {
+        display: block;
+        z-index: 0;
+        position: relative;
+        top: 2em;
+        margin: 0;
+        font-size: .70em; /*tamaño de ancho*/
+        line-height: 1.764705882em;
+        vertical-align: middle;
+        vertical-align: baseline;
+        opacity: 0;
+        -webkit-transition: top .3s ease,opacity .3s ease;
+        -moz-transition: top .3s ease,opacity .3s ease;
+        -ms-transition: top .3s ease,opacity .3s ease;
+        transition: top .3s ease,opacity .3s ease;
+        background: #ff0000; /*color de fondo, una vez que se escriben los datos = color blanco*/}
+    .floating-label-form-group::not(:first-child) {
+        padding-left: 14px;
+        border-left: 1px solid #eee;}
+    .floating-label-form-group-with-value label {
+        top: 0;
+        opacity: 1;}
+    .floating-label-form-group-with-focus label {
+        color: #ccff00;} /*color de letras una vez que se escriben los datos = color amarillo*/
+    form .row:first-child .floating-label-form-group {
+        border-top: 1px solid #eee;
+    }
+
+/*PARTE INFERIOR DE LA PAGINA*/
+    footer {
+        color: #fff;/*color de letra = blanco*/}
+    footer h3 {
+        margin-bottom: 20px; /*espacio de titulo y letras*/
+        color: #FF3300; /*Color de letras de los titulos = rojo*/}
+    footer .footer-above {
+        padding-top: 10px;/*grosor*/
+        background-color: #000045;/*color de fondo parte superior = azul marino*/}
+    footer .footer-col {
+        margin-bottom: 30px; /*espacio entre botones y parte inferior*/}
+    footer .footer-below { 
+        padding: 15px 0; /*grosor*/
+        background-color: #3399ff;/*color de fondo parte inferior = celeste*/
+    }
+/*BOTONES DE REDES SOCIALES DEL FOOTER PARTE INFERIOR DE LA PAGINA*/
+    .btn-social {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border: 3px solid #fff; /*grosor y color de borde = blanco*/
+        border-radius: 100%; /*forma de botones*/
+        text-align: center;
+        font-size: 25px; /*tamaño de iconos*/
+        line-height: 45px; /*posicion de iconos*/
+        color: #000000; /*color de iconos de botones = negro*/}
+    .btn:focus,
+    .btn:active,
+    .btn.active {
+        outline: 0;}
+
+.scroll-top {
+    z-index: 1049;
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+    width: 50px;
+    height: 50px;}
+.scroll-top .btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 28px;}
+.scroll-top .btn:focus {
+    outline: 0;}
+
+/*SECCION DE PLANTILLA DE EQUIPOS*/
+    .portfolio-modal .modal-content {
+        padding: 100px 0;
+        min-height: 100%;
+        border: 0;
+        border-radius: 0;
+        text-align: center;
+        background-clip: border-box;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        background: #506090; /*color de fondo = violeta suabe*/}
+
+    .portfolio-modal .modal-content h2 {/*NOMBRE DE LA PLANTILLA*/
+        margin: 0;
+        font-size: 2em;/*TAMAÑO DE LETRA*/
+        background: #;/*color de fondo de letra*/
+        color: #ffff00;/*color de letra = amarrillo*/}
+    .portfolio-modal .modal-content img {
+        margin-bottom: 50px;}
+    .portfolio-modal .modal-content .item-details {/*PARTE LETRAS INFERIOR cliente, etc*/
+        margin: 80px 0;
+        color: #fff}
+    .portfolio-modal .close-modal {/*RESPECTO A LA LETRA "X"*/
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        width: 75px;
+        height: 75px;
+        background-color: transparent; /*COLOR DE FONDO DE LA LETRA X*/
+        cursor: pointer;}
+    .portfolio-modal .close-modal:hover {
+        opacity: .3;}
+    .portfolio-modal .close-modal .lr {
+        z-index: 1051;
+        width: 3px; /*GROSOR DE LA LETRA X*/
+        height: 40px; /* TAMAÑO DE LA X*/
+        margin-left: 35px;
+        background-color: #ffff00;/* color AMARILLO de la parte "/"*/
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);}
+    .portfolio-modal .close-modal .lr .rl {
+        z-index: 1052;
+        width: 3px; /*GROSOSR DE LA LETRA X*/
+        height: 40px;/*TAMAÑO DE LA X*/
+        background-color: #ffff00;/* color AMARILLO de la parte "/"*/
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);}
+    .portfolio-modal .modal-backdrop {
+        display: none;
+        opacity: 0;
+        background-color: #ccff00;}
+    /*color de letras de la SECCION DE NOSOTROS, PLANTILLA DE EQUIPOS*/
+    p{
+        color: #fff;
+    }
