@@ -41,7 +41,7 @@ try {
                                 ));
 
 
-       header("Location: main_admin.php");
+       header("Location: main_admin.php#listar_jugadores");
    
     $resultadoSQL = null;
 

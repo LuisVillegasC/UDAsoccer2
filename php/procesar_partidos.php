@@ -145,7 +145,7 @@ catch (Exception $e) {
 $conexionAlServidorBD = null;
 
 
-header("Location: main_admin.php");
+header("Location: main_admin.php#listar_equipos");
 
 
 ?>
