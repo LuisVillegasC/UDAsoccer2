@@ -7,6 +7,7 @@ session_start();
 //LOGIN solo cuentas 'ACTIVAS'
 $estado_cuenta = 'activa';
 
+$id_equipo = $_POST['id_equipo'];
 $nombre = $_POST['nombre'];
 $paterno = $_POST['paterno'];
 $materno =  $_POST['materno'];
@@ -18,8 +19,8 @@ $estado_cuenta =  "activa";
 
 
 $nombre_tabla = 'jugador';
-$query_usuario_insert = "INSERT INTO ".$nombre_tabla."(nombre, paterno, materno, ci, semestre, carrera, fecha_nacimiento)
-VALUES (:nombre, :paterno, :materno, :ci, :semestre, :carrera, :fecha_nacimiento) ";
+$query_usuario_insert = "INSERT INTO ".$nombre_tabla."(id_equipo, nombre, paterno, materno, ci, semestre, carrera, fecha_nacimiento)
+VALUES (:id_equipo, :nombre, :paterno, :materno, :ci, :semestre, :carrera, :fecha_nacimiento) ";
 
 try {
 
@@ -29,6 +30,7 @@ try {
     //Retorna TRUE si todo fue bien, y FALSE en caso contrario (booleano)
     $okInsercion = $agenteSQL->execute(
                             array(
+                                  ':id_equipo' => $id_equipo,
                                   ':nombre' => $nombre,
                                   ':paterno' => $paterno,
                                   ':materno' => $materno,
@@ -49,7 +51,7 @@ try {
       $_SESSION['carrera']= $carrera;
       $_SESSION['fecha_nacimiento']= $fecha_nacimiento;
 
-       header("Location: lista_jugadores.php");
+       header("Location: main_admin.php");
     } else {
        $_SESSION['mensaje_login'] = 'Fallo el registro del usuario. Intente registrarse nuevamente';
        header("Location: index.php");

@@ -176,6 +176,11 @@ echo $nombre_completo_usuario;
                                 <input type="text" name="carrera" id="carrera" class="input-formulario" />
                                 <label for="fecha_nacimiento">Fecha de nacimiento:</label>
                                 <input type="text" name="fecha_nacimiento" id="fecha_nacimiento" class="input-formulario" />
+                                                             <select name="id_equipo">
+                                    <option value="1">Bolivar</option>
+                                    <option value="2">Wilsterman</option>
+                                    <option value="3">San Jose</option>
+                                </select>
                                 <input type="submit" value="Registrar"class="boton-formulario">
                                 <input type="reset" value="Limpiar"class="boton-formulario">
                             </form>
