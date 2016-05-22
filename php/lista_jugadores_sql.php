@@ -4,8 +4,9 @@ include('conexionBD.php');
 
 
 $nombre_tabla = 'jugador';
-$query_jugador_select = "SELECT nombre, paterno, materno, ci, semestre, carrera, fecha_nacimiento FROM ".$nombre_tabla;
+$query_jugador_select = "J.nombre, J.paterno, J.materno, J.ci, J.semestre, J.carrera, J.fecha_nacimiento,E.nombre as nombre_equipo FROM jugador J, equipo E WHERE J.id_equipo = E.id_equipo ";
 
+echo "<br>".$query_jugador_select;
 
 try {
 

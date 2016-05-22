@@ -41,22 +41,8 @@ try {
                                 ));
 
 
-    if ($okInsercion) {
-      // Inicializar una variable de SESION con valores
-      $_SESSION['nombre']= $nombre;
-      $_SESSION['paterno']= $paterno;
-      $_SESSION['materno']= $materno;
-      $_SESSION['ci']= $ci;
-      $_SESSION['semestre']= $semestre;
-      $_SESSION['carrera']= $carrera;
-      $_SESSION['fecha_nacimiento']= $fecha_nacimiento;
-
        header("Location: main_admin.php");
-    } else {
-       $_SESSION['mensaje_login'] = 'Fallo el registro del usuario. Intente registrarse nuevamente';
-       header("Location: index.php");
-    }
-
+   
     $resultadoSQL = null;
 
 }

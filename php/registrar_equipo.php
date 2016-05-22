@@ -10,8 +10,6 @@ $estado_cuenta = 'activa';
 $nombre = $_POST['nombre'];
 $fecha_registro = date("Y").'-'.date("m").'-'.date("d");
 
-include('equipo_puntos_acumulados.php');
-
 
 $nombre_tabla = 'equipo';
 $query_usuario_insert = "INSERT INTO ".$nombre_tabla."(nombre, pts_acumulados, total_goles, fecha_registro)
@@ -26,32 +24,12 @@ try {
     $okInsercion = $agenteSQL->execute(
                             array(
                                   ':nombre' => $nombre,
-                                  ':paterno' => $paterno,
-                                  ':materno' => $materno,
-                                  ':ci' => $ci,
-                                  ':semestre' => $semestre,
-                                  ':carrera' => $carrera,
-                                  ':fecha_nacimiento' => $fecha_nacimiento
+                                  ':pts_acumulados' => 0,
+                                  ':total_goles' => 0,
+                                  ':fecha_registro' => $fecha_registro
                                 ));
-
-
-    if ($okInsercion) {
-      // Inicializar una variable de SESION con valores
-      $_SESSION['nombre']= $nombre;
-      $_SESSION['paterno']= $paterno;
-      $_SESSION['materno']= $materno;
-      $_SESSION['ci']= $ci;
-      $_SESSION['semestre']= $semestre;
-      $_SESSION['carrera']= $carrera;
-      $_SESSION['fecha_nacimiento']= $fecha_nacimiento;
-
-       header("Location: lista_jugadores.php");
-    } else {
-       $_SESSION['mensaje_login'] = 'Fallo el registro del usuario. Intente registrarse nuevamente';
-       header("Location: index.php");
-    }
-
     $resultadoSQL = null;
+     header("Location: main_admin.php#listar_equipos");
 
 }
 catch (PDOException $e) {

@@ -4,7 +4,7 @@ include('conexionBD.php');
 
 
 $nombre_tabla = 'equipo';
-$query_jugador_select = "SELECT id_equipo, nombre, pts_acumulados, fecha_registro FROM ".$nombre_tabla;
+$query_jugador_select = "SELECT id_equipo, nombre, pts_acumulados, fecha_registro FROM ".$nombre_tabla." ORDER BY nombre ASC, pts_acumulados DESC";
 
 try {
 

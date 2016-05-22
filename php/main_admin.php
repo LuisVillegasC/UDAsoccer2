@@ -29,6 +29,12 @@ if (!empty($nombre) && !empty($paterno) && !empty($materno)) {
     $_SESSION['mensaje_login'] = 'Su cuenta de usuario no existe o no esta activa. Intente iniciar sesion nuevamente';
     header("Location: index.php");
 }
+
+include('lista_equipos_sql.php');
+include('lista_jugadores_sql.php');
+include('lista_jugadores_por_equipo_sql.php');
+include('lista_partidos_sql.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -113,6 +119,9 @@ echo $nombre_completo_usuario;
             <!-- /.container-fluid -->
         </nav>
 
+        
+        
+
             <!-- SECCION DE INICIO-->
             <section class="success" id="inicio">
                 <div class="container">
@@ -179,11 +188,30 @@ echo $nombre_completo_usuario;
                                 <input type="text" name="carrera" id="carrera" class="input-formulario" />
                                 <label for="fecha_nacimiento">Fecha de nacimiento:</label>
                                 <input type="text" name="fecha_nacimiento" id="fecha_nacimiento" class="input-formulario" />
-                                                             <select name="id_equipo">
-                                    <option value="1">Bolivar</option>
-                                    <option value="2">Wilsterman</option>
-                                    <option value="3">San Jose</option>
+
+                                  <?php
+                                if ($equipos) {
+                                    $nro_equipos = count($equipos);
+                                ?>
+                                <select name="id_equipo">
+                                  <?php
+                                    foreach ($equipos as $row) {
+                                        $id_equipo = $row['id_equipo'];
+                                        $nombre    = $row['nombre'];
+
+                                         ?>
+                                        <option value="<?php echo $id_equipo; ?>">
+                                            <?php echo $nombre; ?>
+                                        
+                                            </option>
+                                         <?php
+}
+                                ?>
                                 </select>
+                                <?php
+                                    }
+                                ?>
+
                                 <input type="submit" value="Registrar"class="boton-formulario">
                                 <input type="reset" value="Limpiar"class="boton-formulario">
                             </form>
@@ -201,9 +229,6 @@ echo $nombre_completo_usuario;
                             <form class="formulario" action="registrar_equipo.php" method="post">
                                 <label for="nombre">Nombre:</label>
                                 <input type="text" name="nombre" id="nombre" class="input-formulario" />
-                                <label for="encargado">Encargado:</label>
-                                <input type="text" name="encargado" id="encargado" class="input-formulario" />
-
                                 
                                 <input type="submit" value="Registrar"class="boton-formulario">
                                 <input type="reset" value="Limpiar"class="boton-formulario">
@@ -215,27 +240,31 @@ echo $nombre_completo_usuario;
 
             <section id="listar_jugadores">
                 <?php
-                include('lista_jugadores_sql.php');
+                
+
+                
                 if ($jugadores) {
                     $nro_jugadores = count($jugadores);
                 ?>
-
                 <h2>Lista de jugadores</h2>
-                <ul>
-                <h4>(<?php
+                                <h4>(<?php
                     echo $nro_jugadores;
                 ?> jugadores)</h4>
+
+                <ul>
+
 
                 <?php
                     foreach ($jugadores as $row) {
                         // $id_usuario        = $row['id_usuario'];
                         // $id_privilegio     = $row['id_privilegio'];
                         $nombre = $row['nombre'];
+                        $nombre_equipo = $row['nombre_equipo'];
                 ?>
 
                 <li>
                 <span><?php
-                        echo $nombre;
+                        echo $nombre."     ".$nombre_equipo;
                 ?></span>
                 </li>
                 <?php
@@ -247,7 +276,7 @@ echo $nombre_completo_usuario;
                 <?php
                 } else {
                 ?>
-                <span>No tiene privilegios este usuario.</span>
+                <span>No tiene jugadores este equipo.</span>
 
                 <?php
                 }
@@ -258,7 +287,6 @@ echo $nombre_completo_usuario;
 
                 <section id="listar_equipos">
                 <?php
-                include('lista_equipos_sql.php');
                 if ($equipos) {
                     $nro_equipos = count($equipos);
                 ?>
@@ -275,6 +303,7 @@ echo $nombre_completo_usuario;
                         // $id_privilegio     = $row['id_privilegio'];
                         $id_equipo = $row['id_equipo'];
                         $nombre    = $row['nombre'];
+                        $pts_acumulados    = $row['pts_acumulados'];
                 ?>
 
                 <li>
@@ -284,14 +313,13 @@ echo $nombre_completo_usuario;
                 <span><?php
                         echo $nombre;
                 ?></span>
+                <span><?php
+                        echo $pts_acumulados;
+                ?></span>
                 </li>
 
 
                 <ul>
-
-                <?php
-                        include('lista_jugadores_por_equipo_sql.php');
-                ?>
 
                 <?php
                         if ($jugadores_por_equipo) {
@@ -317,7 +345,7 @@ echo $nombre_completo_usuario;
                 <?php
                         } else {
                 ?>
-                <span>No tiene privilegios este usuario.</span>
+                <span>No tiene jugadores este equipo.</span>
 
                 <?php
                         }
@@ -348,7 +376,7 @@ echo $nombre_completo_usuario;
 
             <section id="listar_partidos">
                 <?php
-                include('lista_partidos_sql.php');
+
                 if ($partidos) {
                     $nro_partidos = count($partidos);
                 ?>
@@ -430,22 +458,59 @@ echo $nombre_completo_usuario;
                             <span class="name">Registrar Partido</span>
                             <form class="formulario" action="registrar_partido.php" method="post">
                                 <label for="nombre">Equipo 1:</label>
+
+
+                                <?php
+                                if ($equipos) {
+                                    $nro_equipos = count($equipos);
+                                ?>
                                 <select name="nombre_equipo_1">
-                                    <option value="Bolivar">Bolivar</option>
-                                    <option value="Wilsterman">Wilsterman</option>
-                                    <option value="San Jose">San Jose</option>
+                                  <?php
+                                    foreach ($equipos as $row) {
+                                        $id_equipo = $row['id_equipo'];
+                                        $nombre    = $row['nombre'];
+
+                                         ?>
+                                        <option value="<?php echo $nombre; ?>">
+                                            <?php echo $nombre; ?>
+                                        
+                                            </option>
+                                         <?php
+}
+                                ?>
                                 </select>
+                                <?php
+                                    }
+                                ?>
 
                                 
                                 <label for="nro_goles_equipo_1">nro_goles_equipo_1:</label>
                                 <input type="text" name="nro_goles_equipo_1" id="nro_goles_equipo_1" />
 
                                 <label for="nombre">Equipo 2:</label>
+    
+                                    <?php
+                                if ($equipos) {
+                                    $nro_equipos = count($equipos);
+                                ?>
                                 <select name="nombre_equipo_2">
-                                    <option value="Bolivar">Bolivar</option>
-                                    <option value="Wilsterman">Wilsterman</option>
-                                    <option value="San Jose">San Jose</option>
+                                  <?php
+                                    foreach ($equipos as $row) {
+                                        $id_equipo = $row['id_equipo'];
+                                        $nombre    = $row['nombre'];
+
+                                         ?>
+                                        <option value="<?php echo $nombre; ?>">
+                                            <?php echo $nombre; ?>
+                                        
+                                            </option>
+                                         <?php
+}
+                                ?>
                                 </select>
+                                <?php
+                                    }
+                                ?>
 
                                 <label for="nro_goles_equipo_2">nro_goles_equipo_1:</label>
                                 <input type="text" name="nro_goles_equipo_2" id="nro_goles_equipo_2 " />

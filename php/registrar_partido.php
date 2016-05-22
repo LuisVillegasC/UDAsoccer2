@@ -78,7 +78,7 @@ try {
     $resultadoSQL = null;
     
 
-    //header("Location: main_admin.php");
+    header("Location: main_admin.php");
     
 }
 catch (PDOException $e) {
