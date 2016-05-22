@@ -35,20 +35,24 @@ $query_partido_insert = "INSERT INTO " . $nombre_tabla . "(fecha_torneo, nombre_
 VALUES (:fecha_torneo, :nombre_equipo_1, :nombre_equipo_2, :nro_goles_equipo_1, :nro_goles_equipo_2, :resultado, :fecha_partido) ";
 
 
-echo "query_partido_insert:".$query_partido_insert;
+// echo "<br>";
+// echo "<br>";
+// echo "query_partido_insert:".$query_partido_insert;
+// echo "<br>";
+// echo "<br>";
 
 try {
     
     /* Ejecutar una sentencia preparada proporcionando un array de valores de inserción */
     $agenteSQL = $conexionAlServidorBD->prepare($query_partido_insert);
     
-echo "<br>-->".$fecha_torneo;
-echo "<br>-->".$nombre_equipo_1;
-echo "<br>-->".$nombre_equipo_2;
-echo "<br>-->".$nro_goles_equipo_1;
-echo "<br>-->".$nro_goles_equipo_2;
-echo "<br>-->".$resultado;
-echo "<br>-->".$fecha_partido;
+// echo "<br>-->".$fecha_torneo;
+// echo "<br>-->".$nombre_equipo_1;
+// echo "<br>-->".$nombre_equipo_2;
+// echo "<br>-->".$nro_goles_equipo_1;
+// echo "<br>-->".$nro_goles_equipo_2;
+// echo "<br>-->".$resultado;
+// echo "<br>-->".$fecha_partido;
 
 
     //Retorna TRUE si todo fue bien, y FALSE en caso contrario (booleano)
@@ -64,9 +68,9 @@ echo "<br>-->".$fecha_partido;
 
     
     if ($okInsercion) {
-        echo "registro del partido, exitoso";
-        include('equipo_puntos_acumulados.php');
+        header('main_admin.php');
     }else{
+        echo "<br>";
         echo "fallo el registro del partido";
     }
 

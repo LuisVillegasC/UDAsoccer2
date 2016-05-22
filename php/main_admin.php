@@ -90,6 +90,9 @@ if (!empty($nombre) && !empty($paterno) && !empty($materno)) {
                             <a href="#listar_partidos">Listar Partidos</a>
                         </li>
                         <li class="page-scroll">
+                            <a href="procesar_partidos.php">Procesar Partidos</a>
+                        </li>
+                        <li class="page-scroll">
                             <a href="#contact">Contacto</a>
                         </li>
                         <li class="page-scroll">
@@ -409,7 +412,7 @@ echo $nombre_completo_usuario;
                 <?php
                 } else {
                 ?>
-                <span>No tiene privilegios este usuario.</span>
+                <span>No hay ningun partido por listar.</span>
 
                 <?php
                 }
