@@ -81,7 +81,10 @@ if (!empty($nombre) && !empty($paterno) && !empty($materno)) {
                             <a href="#registrar_equipo">Registrar Equipo</a>
                         </li>
                         <li class="page-scroll">
-                            <a href="#listar_equipos">Listar Equipo</a>
+                            <a href="#listar_equipos">Listar Equipos</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#listar_partidos">Listar Partidos</a>
                         </li>
                         <li class="page-scroll">
                             <a href="#contact">Contacto</a>
@@ -187,6 +190,9 @@ echo $nombre_completo_usuario;
                             <form class="formulario" action="registrar_jugador.php" method="post">
                                 <label for="nombre">Nombre:</label>
                                 <input type="text" name="nombre" id="nombre" class="input-formulario" />
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" name="nombre" id="nombre" class="input-formulario" />
+
                                 
                                 <input type="submit" value="Registrar"class="boton-formulario">
                                 <input type="reset" value="Limpiar"class="boton-formulario">
@@ -327,5 +333,81 @@ echo $nombre_completo_usuario;
                 ?>
 
             </section>
+
+
+            <section id="listar_partidos">
+                <?php
+                include('lista_partidos_sql.php');
+                if ($partidos) {
+                    $nro_partidos = count($partidos);
+                ?>
+
+                <h2>Lista de partidos</h2>
+
+                <h4>(<?php
+                    echo $nro_partidos;
+                ?> partidos)</h4>
+
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>fecha_partido</th>
+                                <th>fecha_torneo</th>
+                                <th>nombre_equipo_1</th>
+                                <th>nombre_equipo_2</th>
+                                <th>nro_goles_equipo_1</th>
+                                <th>nro_goles_equipo_2</th>
+                                <th>resultado</th>
+                            </tr>    
+                        </thead>
+                        <tbody>
+
+
+                <?php
+                    foreach ($partidos as $partido) {
+                        // $id_usuario        = $row['id_usuario'];
+                        // $id_privilegio     = $row['id_privilegio'];
+                        $fecha_torneo = $partido['fecha_torneo'];
+                        $nombre_equipo_1 = $partido['nombre_equipo_1'];
+                        $nombre_equipo_2 = $partido['nombre_equipo_2'];
+                        $nro_goles_equipo_1 = $partido['nro_goles_equipo_1'];
+                        $nro_goles_equipo_2 = $partido['nro_goles_equipo_2'];
+                        $resultado = $partido['resultado'];
+                        $fecha_partido = $partido['fecha_partido'];
+                ?>
+
+                  
+                        
+                            <tr>
+                                <td><?php echo $fecha_partido; ?></td>
+                                <td><?php echo $fecha_torneo; ?></td>
+                                <td><?php echo $nombre_equipo_1; ?></td>
+                                <td><?php echo $nombre_equipo_2; ?></td>
+                                <td><?php echo $nro_goles_equipo_1; ?></td>
+                                <td><?php echo $nro_goles_equipo_2; ?></td>
+                                <td><?php echo $resultado; ?></td>
+                            </tr>    
+                        
+
+
+
+                <?php
+                    }
+                ?>
+                </tbody>
+                    </table>
+
+
+                <?php
+                } else {
+                ?>
+                <span>No tiene privilegios este usuario.</span>
+
+                <?php
+                }
+                $resultadoSQL = null;
+                ?>
+
+                </section>
     </body>
 </html>
