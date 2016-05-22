@@ -3,8 +3,9 @@
 include('conexionBD.php');
 
 
-$nombre_tabla = 'equipo';
-$query_jugador_select = "SELECT nombre, pts_acumulados, fecha_registro FROM ".$nombre_tabla;
+$nombre_tabla = 'jugador';
+$query_jugador_select = "SELECT nombre, paterno, materno, ci, semestre, carrera, fecha_nacimiento FROM ".$nombre_tabla;
+
 
 try {
 
