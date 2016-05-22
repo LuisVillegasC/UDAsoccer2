@@ -101,34 +101,7 @@
             </div>
             <!-- /.container-fluid -->
         </nav>
-            <!-- SECCION DE registrar_jugador-->
-            <section id="registrar_jugador">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 ">
-                            <span class="name">Registrar Jugador</span>
-                            <form class="formulario-login" action="registrar_jugador.php" method="post">
-                                <label for="nombre">Nombre:</label>
-                                <input type="text" name="nombre" id="nombre" class="input-formulario" />
-                                <label for="paterno">Paterno:</label>
-                                <input type="text" name="paterno" id="paterno" class="input-formulario" />
-                                <label for="materno">Materno:</label>
-                                <input type="text" name="materno" id="materno" class="input-formulario" />
-                                <label for="ci">CI:</label>
-                                <input type="text" name="ci" id="ci" class="input-formulario" />
-                                <label for="password">Semestre:</label>
-                                <input type="text" name="semestre" id="semestre" class="input-formulario" /> 
-                                <label for="carrera">Carrera:</label>
-                                <input type="text" name="carrera" id="carrera" class="input-formulario" />
-                                <label for="fecha_nacimiento">Fecha de nacimiento:</label>
-                                <input type="text" name="fecha_nacimiento" id="fecha_nacimiento" class="input-formulario" />
-                                <input type="submit" value="Registrar"class="boton-formulario">
-                                <input type="reset" value="Limpiar"class="boton-formulario">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
             <!-- SECCION DE INICIO-->
             <section class="success" id="inicio">
                 <div class="container">
@@ -169,6 +142,53 @@
                         <div class="col-lg-9">
                             <h3>¿QUIENES SOMOS?</h3>
                             <p><small> BackupDRAL es un grupo de estudiantes de la carrera de "Taller de sistemas", que esta enfocado a realizar un sistema web deportivo, con el fin de cumplir con la espectativa de un buen ing. de sistemas. </small></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                        <!-- SECCION DE registrar_jugador-->
+            <section id="registrar_jugador">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 ">
+                            <span class="name">Registrar Jugador</span>
+                            <form class="formulario-login" action="registrar_jugador.php" method="post">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" name="nombre" id="nombre" class="input-formulario" />
+                                <label for="paterno">Paterno:</label>
+                                <input type="text" name="paterno" id="paterno" class="input-formulario" />
+                                <label for="materno">Materno:</label>
+                                <input type="text" name="materno" id="materno" class="input-formulario" />
+                                <label for="ci">CI:</label>
+                                <input type="text" name="ci" id="ci" class="input-formulario" />
+                                <label for="password">Semestre:</label>
+                                <input type="text" name="semestre" id="semestre" class="input-formulario" /> 
+                                <label for="carrera">Carrera:</label>
+                                <input type="text" name="carrera" id="carrera" class="input-formulario" />
+                                <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+                                <input type="text" name="fecha_nacimiento" id="fecha_nacimiento" class="input-formulario" />
+                                <input type="submit" value="Registrar"class="boton-formulario">
+                                <input type="reset" value="Limpiar"class="boton-formulario">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                        <!-- SECCION DE registrar_equipo-->
+            <section id="registrar_equipo">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 ">
+                            <span class="name">Registrar Equipo</span>
+                            <form class="formulario-login" action="registrar_jugador.php" method="post">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" name="nombre" id="nombre" class="input-formulario" />
+                                
+                                <input type="submit" value="Registrar"class="boton-formulario">
+                                <input type="reset" value="Limpiar"class="boton-formulario">
+                            </form>
                         </div>
                     </div>
                 </div>
