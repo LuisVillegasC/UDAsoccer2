@@ -72,10 +72,16 @@
                             <a href="#nosotros">Nosotros</a>
                         </li>
                         <li class="page-scroll">
+                            <a href="#listar_jugadores">Listar Jugadores</a>
+                        </li>
+                        <li class="page-scroll">
                             <a href="#registrar_jugador">Registrar Jugador</a>
                         </li>
                         <li class="page-scroll">
                             <a href="#registrar_equipo">Registrar Equipo</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#listar_equipos">Listar Equipo</a>
                         </li>
                         <li class="page-scroll">
                             <a href="#contact">Contacto</a>
@@ -94,6 +100,7 @@
                 <!-- /.navbar-collapse -->
             </div>
             <!-- /.container-fluid -->
+        </nav>
             <!-- SECCION DE registrar_jugador-->
             <section id="registrar_jugador">
                 <div class="container">
@@ -166,6 +173,83 @@
                     </div>
                 </div>
             </section>
-        </nav>
+
+            <section id="listar_jugadores">
+                <?php 
+     include('lista_jugadores_sql.php');
+if ($jugadores) {
+            $nro_jugadores = count($jugadores);
+          ?>
+
+          <h2>Lista de jugadores</h2>
+          <ul>
+          <h4>(<?php    echo $nro_jugadores; ?> jugadores)</h4>
+
+          <?php
+            foreach ($jugadores as $row) {
+                            // $id_usuario        = $row['id_usuario'];
+                            // $id_privilegio     = $row['id_privilegio'];
+                            $nombre = $row['nombre'];
+          ?>
+
+          <li>
+            <span><?php echo $nombre; ?></span>
+          </li>
+          <?php
+                        }
+          ?>
+
+          </ul>
+
+          <?php
+          } else {
+          ?>
+              <span>No tiene privilegios este usuario.</span>
+
+          <?php
+          }
+          $resultadoSQL = null;
+          ?>
+
+            </section>
+
+            <section id="listar_equipos">
+                <?php 
+     include('lista_equipos_sql.php');
+if ($equipos) {
+            $nro_equipos = count($equipos);
+          ?>
+
+          <h2>Lista de equipos</h2>
+          <ul>
+          <h4>(<?php    echo $nro_equipos; ?> equipos)</h4>
+
+          <?php
+            foreach ($equipos as $row) {
+                            // $id_usuario        = $row['id_usuario'];
+                            // $id_privilegio     = $row['id_privilegio'];
+                            $nombre = $row['nombre'];
+          ?>
+
+          <li>
+            <span><?php echo $nombre; ?></span>
+          </li>
+          <?php
+                        }
+          ?>
+
+          </ul>
+
+          <?php
+          } else {
+          ?>
+              <span>No tiene privilegios este usuario.</span>
+
+          <?php
+          }
+          $resultadoSQL = null;
+          ?>
+
+            </section>
     </body>
 </html>
