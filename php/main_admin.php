@@ -153,7 +153,7 @@
                     <div class="row">
                         <div class="col-lg-12 ">
                             <span class="name">Registrar Jugador</span>
-                            <form class="formulario-login" action="registrar_jugador.php" method="post">
+                            <form class="formulario" action="registrar_jugador.php" method="post">
                                 <label for="nombre">Nombre:</label>
                                 <input type="text" name="nombre" id="nombre" class="input-formulario" />
                                 <label for="paterno">Paterno:</label>
@@ -182,7 +182,7 @@
                     <div class="row">
                         <div class="col-lg-12 ">
                             <span class="name">Registrar Equipo</span>
-                            <form class="formulario-login" action="registrar_jugador.php" method="post">
+                            <form class="formulario" action="registrar_jugador.php" method="post">
                                 <label for="nombre">Nombre:</label>
                                 <input type="text" name="nombre" id="nombre" class="input-formulario" />
                                 
