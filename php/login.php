@@ -15,8 +15,6 @@
 	$nombre_tabla = 'usuario';
 	$query_usuario_select = "SELECT nombre, paterno, materno, tipo_usuario FROM ".$nombre_tabla. $query_condicion_where;
 
-	echo $query_usuario_select;
-
 	try {
 
 	    $nombre = '';
@@ -25,11 +23,11 @@
 	    $tipo_usuario = '';
 
 
-	    foreach ($conexionAlServidorBD->query($query_usuario_select) as $row) {
-	        $nombre = $row['nombre'];
-	        $paterno = $row['paterno'];
-	        $materno = $row['materno'];
-	        $tipo_usuario = $row['tipo_usuario'];
+	    foreach ($conexionAlServidorBD->query($query_usuario_select) as $fila) {
+	        $nombre = $fila['nombre'];
+	        $paterno = $fila['paterno'];
+	        $materno = $fila['materno'];
+	        $tipo_usuario = $fila['tipo_usuario'];
 	    }
 
 

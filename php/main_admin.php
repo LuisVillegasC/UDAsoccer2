@@ -1,35 +1,35 @@
 <?php
-    //Activar las Sesiones en PHP
-    session_start();
-    $username = '';
-    $password = '';
-    $nombre = '';
-    $paterno = '';
-    $materno = '';
-    $nombre_completo_usuario = '';
-    
-    if (!empty($_SESSION['username'])) {
-        $username = $_SESSION['username'];
-    }
-    if (!empty($_SESSION['password'])) {
-        $password = $_SESSION['password'];
-    }
-    if (!empty($_SESSION['nombre'])) {
-        $nombre = $_SESSION['nombre'];
-    }
-    if (!empty($_SESSION['paterno'])) {
-        $paterno = $_SESSION['paterno'];
-    }
-    if (!empty($_SESSION['materno'])) {
-        $materno = $_SESSION['materno'];
-    }
-    if (!empty($nombre) && !empty($paterno) && !empty($materno)) {
-        $nombre_completo_usuario = $nombre.' '.$paterno.' '.$materno;
-    }else{
-      $_SESSION['mensaje_login'] = 'Su cuenta de usuario no existe o no esta activa. Intente iniciar sesion nuevamente';
-      header("Location: index.php");
-    }
-    ?>
+//Activar las Sesiones en PHP
+session_start();
+$username                = '';
+$password                = '';
+$nombre                  = '';
+$paterno                 = '';
+$materno                 = '';
+$nombre_completo_usuario = '';
+
+if (!empty($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+}
+if (!empty($_SESSION['password'])) {
+    $password = $_SESSION['password'];
+}
+if (!empty($_SESSION['nombre'])) {
+    $nombre = $_SESSION['nombre'];
+}
+if (!empty($_SESSION['paterno'])) {
+    $paterno = $_SESSION['paterno'];
+}
+if (!empty($_SESSION['materno'])) {
+    $materno = $_SESSION['materno'];
+}
+if (!empty($nombre) && !empty($paterno) && !empty($materno)) {
+    $nombre_completo_usuario = $nombre . ' ' . $paterno . ' ' . $materno;
+} else {
+    $_SESSION['mensaje_login'] = 'Su cuenta de usuario no existe o no esta activa. Intente iniciar sesion nuevamente';
+    header("Location: index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -88,7 +88,9 @@
                         </li>
                         <li class="page-scroll">
                             <a href="#contact">
-                            <?php echo $nombre_completo_usuario; ?>
+                            <?php
+echo $nombre_completo_usuario;
+?>
                             </a>
                         </li>
                         <li class="page-scroll">
@@ -176,7 +178,7 @@
                 </div>
             </section>
 
-                        <!-- SECCION DE registrar_equipo-->
+                        <!-- SECCION DE registrar_equipo--> 
             <section id="registrar_equipo">
                 <div class="container">
                     <div class="row">
@@ -195,80 +197,134 @@
             </section>
 
             <section id="listar_jugadores">
-                <?php 
-     include('lista_jugadores_sql.php');
-if ($jugadores) {
-            $nro_jugadores = count($jugadores);
-          ?>
+                <?php
+                include('lista_jugadores_sql.php');
+                if ($jugadores) {
+                    $nro_jugadores = count($jugadores);
+                ?>
 
-          <h2>Lista de jugadores</h2>
-          <ul>
-          <h4>(<?php    echo $nro_jugadores; ?> jugadores)</h4>
+                <h2>Lista de jugadores</h2>
+                <ul>
+                <h4>(<?php
+                    echo $nro_jugadores;
+                ?> jugadores)</h4>
 
-          <?php
-            foreach ($jugadores as $row) {
-                            // $id_usuario        = $row['id_usuario'];
-                            // $id_privilegio     = $row['id_privilegio'];
-                            $nombre = $row['nombre'];
-          ?>
+                <?php
+                    foreach ($jugadores as $row) {
+                        // $id_usuario        = $row['id_usuario'];
+                        // $id_privilegio     = $row['id_privilegio'];
+                        $nombre = $row['nombre'];
+                ?>
 
-          <li>
-            <span><?php echo $nombre; ?></span>
-          </li>
-          <?php
+                <li>
+                <span><?php
+                        echo $nombre;
+                ?></span>
+                </li>
+                <?php
+                    }
+                ?>
+
+                </ul>
+
+                <?php
+                } else {
+                ?>
+                <span>No tiene privilegios este usuario.</span>
+
+                <?php
+                }
+                $resultadoSQL = null;
+                ?>
+
+                </section>
+
+                <section id="listar_equipos">
+                <?php
+                include('lista_equipos_sql.php');
+                if ($equipos) {
+                    $nro_equipos = count($equipos);
+                ?>
+
+                <h2>Lista de equipos</h2>
+                <ul>
+                <h4>(<?php
+                    echo $nro_equipos;
+                ?> equipos)</h4>
+
+                <?php
+                    foreach ($equipos as $row) {
+                        // $id_usuario        = $row['id_usuario'];
+                        // $id_privilegio     = $row['id_privilegio'];
+                        $id_equipo = $row['id_equipo'];
+                        $nombre    = $row['nombre'];
+                ?>
+
+                <li>
+                <span><?php
+                        echo $id_equipo;
+                ?></span>
+                <span><?php
+                        echo $nombre;
+                ?></span>
+                </li>
+
+
+                <ul>
+
+                <?php
+                        include('lista_jugadores_por_equipo_sql.php');
+                ?>
+
+                <?php
+                        if ($jugadores_por_equipo) {
+                            foreach ($jugadores_por_equipo as $jugador) {
+                                // $id_usuario        = $row['id_usuario'];
+                                // $id_privilegio     = $row['id_privilegio'];
+                                
+                                $nombre = $jugador['nombre'];
+
+                        ?>
+
+                <li>
+                <span><?php
+                        echo $nombre;
+                ?></span>
+                </li>
+
+
+                        <?php
+
+                            }
+                ?>
+                <?php
+                        } else {
+                ?>
+                <span>No tiene privilegios este usuario.</span>
+
+                <?php
                         }
-          ?>
+                        
+                        
+                ?>
 
-          </ul>
+                </li>
 
-          <?php
-          } else {
-          ?>
-              <span>No tiene privilegios este usuario.</span>
+                </ul>
 
-          <?php
-          }
-          $resultadoSQL = null;
-          ?>
+                </ul>
+                <?php
+                    }
+                ?>
+                <?php
+                } else {
+                ?>
+                <span>No tiene privilegios este usuario.</span>
 
-            </section>
-
-            <section id="listar_equipos">
-                <?php 
-     include('lista_equipos_sql.php');
-if ($equipos) {
-            $nro_equipos = count($equipos);
-          ?>
-
-          <h2>Lista de equipos</h2>
-          <ul>
-          <h4>(<?php    echo $nro_equipos; ?> equipos)</h4>
-
-          <?php
-            foreach ($equipos as $row) {
-                            // $id_usuario        = $row['id_usuario'];
-                            // $id_privilegio     = $row['id_privilegio'];
-                            $nombre = $row['nombre'];
-          ?>
-
-          <li>
-            <span><?php echo $nombre; ?></span>
-          </li>
-          <?php
-                        }
-          ?>
-
-          </ul>
-
-          <?php
-          } else {
-          ?>
-              <span>No tiene privilegios este usuario.</span>
-
-          <?php
-          }
-          $resultadoSQL = null;
-          ?>
+                <?php
+                }
+                $resultadoSQL = null;
+                ?>
 
             </section>
     </body>
