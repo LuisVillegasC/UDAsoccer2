@@ -81,6 +81,9 @@ if (!empty($nombre) && !empty($paterno) && !empty($materno)) {
                             <a href="#registrar_equipo">Registrar Equipo</a>
                         </li>
                         <li class="page-scroll">
+                            <a href="#registrar_partido">Registrar Partido</a>
+                        </li>
+                        <li class="page-scroll">
                             <a href="#listar_equipos">Listar Equipos</a>
                         </li>
                         <li class="page-scroll">
@@ -187,11 +190,11 @@ echo $nombre_completo_usuario;
                     <div class="row">
                         <div class="col-lg-12 ">
                             <span class="name">Registrar Equipo</span>
-                            <form class="formulario" action="registrar_jugador.php" method="post">
+                            <form class="formulario" action="registrar_equipo.php" method="post">
                                 <label for="nombre">Nombre:</label>
                                 <input type="text" name="nombre" id="nombre" class="input-formulario" />
-                                <label for="nombre">Nombre:</label>
-                                <input type="text" name="nombre" id="nombre" class="input-formulario" />
+                                <label for="encargado">Encargado:</label>
+                                <input type="text" name="encargado" id="encargado" class="input-formulario" />
 
                                 
                                 <input type="submit" value="Registrar"class="boton-formulario">
@@ -409,5 +412,46 @@ echo $nombre_completo_usuario;
                 ?>
 
                 </section>
+
+
+                <!-- SECCION DE registrar_partido--> 
+            <section id="registrar_partido">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 ">
+                            <span class="name">Registrar Partido</span>
+                            <form class="formulario" action="registrar_partido.php" method="post">
+                                <label for="nombre">Equipo 1:</label>
+                                <select name="nombre_equipo_1">
+                                    <option value="Bolivar">Bolivar</option>
+                                    <option value="Wilsterman">Wilsterman</option>
+                                    <option value="San Jose">San Jose</option>
+                                </select>
+
+                                
+                                <label for="nro_goles_equipo_1">nro_goles_equipo_1:</label>
+                                <input type="text" name="nro_goles_equipo_1" id="nro_goles_equipo_1" />
+
+                                <label for="nombre">Equipo 2:</label>
+                                <select name="nombre_equipo_2">
+                                    <option value="Bolivar">Bolivar</option>
+                                    <option value="Wilsterman">Wilsterman</option>
+                                    <option value="San Jose">San Jose</option>
+                                </select>
+
+                                <label for="nro_goles_equipo_2">nro_goles_equipo_1:</label>
+                                <input type="text" name="nro_goles_equipo_2" id="nro_goles_equipo_2 " />
+
+                                <label for="fecha_torneo">Nº fecha torneo:</label>
+                                <input type="text" name="fecha_torneo" id="fecha_torneo" />
+
+                              
+                                <input type="submit" value="Registrar"class="boton-formulario">
+                                <input type="reset" value="Limpiar"class="boton-formulario">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
     </body>
 </html>
